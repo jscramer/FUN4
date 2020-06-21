@@ -7,8 +7,7 @@ WORKDIR /usr/src/app
 # Copy the file from your host to your current location.
 COPY Koffie/client/package.json .
 
-#Try This
-RUN rm -rf node_modules package-lock.json 
+
 RUN npm install
 
 # Run the command inside your image filesystem.
