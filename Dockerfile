@@ -8,16 +8,3 @@ WORKDIR /usr/src/app
 COPY Koffie/client/package.json .
 
 
-RUN yarn add @vue/cli-service
-
-# Run the command inside your image filesystem.
-RUN yarn serve
-
-# Inform Docker that the container is listening on the specified port at runtime.
-EXPOSE 8080
-
-# Run the specified command within the container.
-CMD [ "yarn", "serve" ]
-
-# Copy the rest of your app's source code from your host to your image filesystem.
-COPY . .
