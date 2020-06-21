@@ -1,11 +1,20 @@
-FROM node:latest as build-stage
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY ./ .
-RUN npm run build
+# Use the official image as a parent image.
+FROM node:current-slim
 
-FROM nginx as production-stage
-RUN mkdir /app
-COPY --from=build-stage /app/dist /app
-COPY nginx.conf /etc/nginx/nginx.conf
+# Set the working directory.
+WORKDIR /Koffie/client
+
+# Copy the file from your host to your current location.
+COPY package.json .
+
+# Run the command inside your image filesystem.
+RUN yarn serve
+
+# Inform Docker that the container is listening on the specified port at runtime.
+EXPOSE 8080
+
+# Run the specified command within the container.
+CMD [ "yarn", "serve" ]
+
+# Copy the rest of your app's source code from your host to your image filesystem.
+COPY . .
