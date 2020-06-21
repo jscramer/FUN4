@@ -7,6 +7,9 @@ WORKDIR /usr/src/app
 # Copy the file from your host to your current location.
 COPY Koffie/client/package.json .
 
+#Intsall vue 
+RUN npm install -g @vue/cli@latest
+
 # Run the command inside your image filesystem.
 RUN yarn serve
 
