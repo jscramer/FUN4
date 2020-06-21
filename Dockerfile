@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY Koffie/client/package.json .
 
 
-RUN npm install
+RUN yarn add @vue/cli-service
 
 # Run the command inside your image filesystem.
 RUN yarn serve
