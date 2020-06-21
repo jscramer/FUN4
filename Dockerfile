@@ -8,7 +8,8 @@ WORKDIR /usr/src/app
 COPY Koffie/client/package.json .
 
 #Try This
-RUN rm -rf node_modules package-lock.json && npm install
+RUN rm -rf node_modules package-lock.json 
+RUN npm install
 
 # Run the command inside your image filesystem.
 RUN yarn serve
