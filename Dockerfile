@@ -5,7 +5,7 @@ FROM node:current-slim
 WORKDIR /usr/src/app
 
 # Copy the file from your host to your current location.
-COPY package.json .
+COPY Koffie/client/package.json .
 
 # Run the command inside your image filesystem.
 RUN yarn serve
